@@ -20,11 +20,7 @@ class check_admin_token
 
         try {
 
-            if ( JWTAuth::parseToken()->authenticate()) {
-
-                return $next($request);
-
-            }
+             JWTAuth::parseToken()->authenticate();
 
         }catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
@@ -42,8 +38,9 @@ class check_admin_token
 
             return response()->json(["status"=>500,"message"=>"None Error","data"=>[]]);
 
-
         }
+
+        return $next($request);
 
 
 

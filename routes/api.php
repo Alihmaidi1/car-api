@@ -24,6 +24,8 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/admin.logout",[admin::class,"logout"]);
 
 
+
+
     });
 
 
