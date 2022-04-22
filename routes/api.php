@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\api\admins\admin;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(["middleware"=>["api","api_password"]],function(){
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::post("/admin.store",[admin::class,"store"]);
+    Route::post("/admin.login",[admin::class,"login"]);
+
+    Route::group(["middleware"=>["check_admin_token:admin_api"]],function(){
+
+
+    });
+
+
 });
