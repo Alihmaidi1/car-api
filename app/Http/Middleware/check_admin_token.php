@@ -26,7 +26,7 @@ class check_admin_token
 
             }
 
-        } catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+        }catch (\Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
 
             return response()->json(["message"=>"Expired Token","status"=>401,"data"=>[]]);
 
@@ -37,6 +37,11 @@ class check_admin_token
         } catch (\Tymon\JWTAuth\Exceptions\JWTException $e) {
 
             return response()->json(["message"=>'Token not Found',"status"=>401,"data"=>[]]);
+
+        }catch(\Exception $e){
+
+            return response()->json(["status"=>500,"message"=>"None Error","data"=>[]]);
+
 
         }
 
