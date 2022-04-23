@@ -18,4 +18,11 @@ class store extends Model
 
     }
 
+
+    public function carStore(){
+
+        return $this->hasMany("App\Models\storeCar","store_id");
+
+    }
+
 }

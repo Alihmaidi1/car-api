@@ -9,6 +9,7 @@ use App\Http\Controllers\api\carTypes\carType;
 use App\Http\Controllers\api\cars\car;
 use App\Http\Controllers\api\managers\manager;
 use App\Http\Controllers\api\stores\store;
+use App\Http\Controllers\api\carStores\carStore;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -73,13 +74,21 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/manager.delete",[manager::class,"delete"]);
 
 
-        // store manager
+        // store process
         Route::get("getAllstores",[store::class,"getAllStores"]);
         Route::get("/findStore/{id}",[store::class,"findStore"]);
         Route::post("/store.store",[store::class,"store"]);
         Route::post("/store.update",[store::class,"update"]);
         Route::post("/store.delete",[store::class,"delete"]);
         Route::get("/store.manager",[store::class,"getStoreManager"]);
+
+
+        // carStore process
+        Route::get("getAllcarStore",[carStore::class,"getAllCarStore"]);
+        Route::get("/findCarStore/{id}",[carStore::class,"findCarStore"]);
+        Route::post("/carStore.store",[carStore::class,"store"]);
+        Route::post("/carStore.update",[carStore::class,"update"]);
+        Route::post("/carStore.delete",[carStore::class,"delete"]);
 
 
 

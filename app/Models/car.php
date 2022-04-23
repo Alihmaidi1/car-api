@@ -21,5 +21,11 @@ class car extends Model
         return $this->belongsTo("App\Models\carType","type_id");
     }
 
+    public function storeCar(){
+
+
+        return $this->hasMany("App\Models\storeCar","car_id");
+    }
+
 
 }
