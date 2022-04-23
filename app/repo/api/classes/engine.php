@@ -3,6 +3,7 @@
 namespace App\repo\api\classes;
 
 use App\Models\engine as ModelsEngine;
+use App\Models\models;
 use App\repo\api\interfaces\engine as engineInterface;
 
 class engine implements engineInterface{
@@ -42,6 +43,17 @@ class engine implements engineInterface{
     public function delete($id){
 
         return ModelsEngine::findOrFail($id)->delete();
+
+    }
+
+
+    public function getEngine($id)
+    {
+
+        $model=models::findOrFail($id);
+        $engines=$model->engines;
+        return $engines;
+
 
 
     }

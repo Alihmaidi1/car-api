@@ -100,10 +100,28 @@ class engine extends Controller
 
         }
 
+    }
 
+
+
+    public function getEngine(Request $request){
+
+        try{
+
+            $engines=$this->engine->getEngine($request->id);
+            return response()->json(["data"=>$engines->toArray(),"status"=>200,"message"=>"Success"]);
+
+        }catch(\Exception $ex){
+
+            return response()->json(["data"=>[],"status"=>500,"message"=>"We Can't get the Engine Data"]);
+
+
+        }
 
 
     }
+
+
 
 
 }
