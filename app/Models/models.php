@@ -11,4 +11,11 @@ class models extends Model
 
     public $fillable=["name","country","create_Date","created_at"];
 
+    public function engines(){
+
+        return $this->hasMany("App\Models\\engine","model_id");
+
+
+    }
+
 }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\admins\admin;
 use App\Http\Controllers\api\models\model;
+use App\Http\Controllers\api\engines\engine;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -32,6 +33,13 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/model.store",[model::class,"store"]);
         Route::post("/model.update",[model::class,"update"]);
         Route::post("/model.delete",[model::class,"delete"]);
+
+        // engine process
+        Route::get("/getAllEngine",[engine::class,"getAllEngine"]);
+        Route::get("/findEngine/{id}",[engine::class,"findEngine"]);
+        Route::post("/engine.store",[engine::class,"store"]);
+        Route::post("/engine.update",[engine::class,"update"]);
+        Route::post("/engine.delete",[engine::class,"delete"]);
 
 
     });
