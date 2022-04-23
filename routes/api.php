@@ -10,6 +10,7 @@ use App\Http\Controllers\api\cars\car;
 use App\Http\Controllers\api\managers\manager;
 use App\Http\Controllers\api\stores\store;
 use App\Http\Controllers\api\carStores\carStore;
+use App\Http\Controllers\api\customers\customer;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -89,6 +90,15 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/carStore.store",[carStore::class,"store"]);
         Route::post("/carStore.update",[carStore::class,"update"]);
         Route::post("/carStore.delete",[carStore::class,"delete"]);
+
+
+        //customer process
+        Route::get("getAllcustomer",[customer::class,"getAllcustomer"]);
+        Route::get("/findcustomer/{id}",[customer::class,"findcustomer"]);
+        Route::post("/customer.store",[customer::class,"store"]);
+        Route::post("/customer.update",[customer::class,"update"]);
+        Route::post("/customer.delete",[customer::class,"delete"]);
+
 
 
 
