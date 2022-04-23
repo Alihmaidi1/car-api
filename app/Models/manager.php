@@ -11,4 +11,13 @@ class manager extends Model
 
     public $fillable=["name","address","birthDay","salary","created_at"];
 
+
+    public function stores(){
+
+        return $this->hasMany("App\Models\store","manager_id");
+
+
+    }
+
+
 }
