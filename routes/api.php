@@ -12,7 +12,7 @@ use App\Http\Controllers\api\stores\store;
 use App\Http\Controllers\api\carStores\carStore;
 use App\Http\Controllers\api\customers\customer;
 use App\Http\Controllers\api\orders\order;
-
+use App\Http\Controllers\api\employees\employe;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -109,6 +109,17 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/order.update",[order::class,"update"]);
         Route::post("/order.delete",[order::class,"delete"]);
         Route::post("/order.customer",[order::class,"getOrdersCustomer"]);
+        Route::post("/order.employeeDealing",[order::class,"getOrderFromEmployeeDealing"]);
+        Route::post("/order.employeeService",[order::class,"getOrderFromEmployeeService"]);
+
+
+        // employee process
+        Route::get("getAllemployee",[employe::class,"getAllemployee"]);
+        Route::get("/findemployee/{id}",[employe::class,"findemployee"]);
+        Route::post("/employee.store",[employe::class,"store"]);
+        Route::post("/employee.update",[employe::class,"update"]);
+        Route::post("/employee.delete",[employe::class,"delete"]);
+        Route::post("/employee.getStore",[employe::class,"getStore"]);
 
 
     });

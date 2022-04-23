@@ -26,7 +26,10 @@ class update extends FormRequest
     {
         return [
             "customer_id"=>"required|exists:customers,id",
-            "id"=>"required|exists:orders,id"
+            "id"=>"required|exists:orders,id",
+            "employee_dealing"=>"required|exists:employees,id",
+            "employee_service"=>"required|exists:employees,id"
+
         ];
     }
 

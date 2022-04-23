@@ -25,4 +25,9 @@ class store extends Model
 
     }
 
+    public function employees(){
+
+        return $this->hasMany("App\Models\\employee","store_id");
+    }
+
 }

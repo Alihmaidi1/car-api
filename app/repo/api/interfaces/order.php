@@ -9,5 +9,8 @@ interface order{
     public function update($request);
     public function delete($id);
     public function getOrdersCustomer($id);
+    public function getOrderFromEmployeeDealing($id);
+    public function getOrderFromEmployeeService($id);
+
 
 }

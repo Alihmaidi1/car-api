@@ -129,6 +129,45 @@ class order extends Controller
     }
 
 
+    public function getOrderFromEmployeeDealing(Request $request){
+
+        try{
+
+            $orders=$this->order->getOrderFromEmployeeDealing($request->id);
+            return response()->json(["data"=>$orders->toArray(),"status"=>200,"message"=>"Success"]);
+
+        }catch(\Exception $ex){
+
+            return response()->json(["data"=>[],"status"=>500,"message"=>"We Can't Get All order For This Employee As Dealing"]);
+
+        }
+
+
+
+
+    }
+
+
+
+
+    public function getOrderFromEmployeeService(Request $request){
+
+        try{
+
+            $orders=$this->order->getOrderFromEmployeeService($request->id);
+            return response()->json(["data"=>$orders->toArray(),"status"=>200,"message"=>"Success"]);
+
+        }catch(\Exception $ex){
+
+            return response()->json(["data"=>[],"status"=>500,"message"=>"We Can't Get All order For This Employee As Service"]);
+
+
+        }
+
+
+
+
+    }
 
 
 }

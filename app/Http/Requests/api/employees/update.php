@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\api\orders;
+namespace App\Http\Requests\api\employees;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class store extends FormRequest
+class update extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,13 @@ class store extends FormRequest
     {
         return [
 
-            "customer_id"=>"required|exists:customers,id",
-            "employee_dealing"=>"required|exists:employees,id",
-            "employee_service"=>"required|exists:employees,id"
+            "name"=>"required",
+            "address"=>"required",
+            "salary"=>"required",
+            "store_id"=>"required|exists:stores,id",
+            "id"=>"required|exists:employees,id"
+
+
 
         ];
     }
@@ -42,6 +46,7 @@ class store extends FormRequest
             response()->json(["data"=>[],"status"=>402,"message"=>$validator->errors()->first()])
 
         );
-
     }
+
+
 }

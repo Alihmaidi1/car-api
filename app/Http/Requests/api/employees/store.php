@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\api\orders;
+namespace App\Http\Requests\api\employees;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -26,22 +26,22 @@ class store extends FormRequest
     {
         return [
 
-            "customer_id"=>"required|exists:customers,id",
-            "employee_dealing"=>"required|exists:employees,id",
-            "employee_service"=>"required|exists:employees,id"
+            "name"=>"required",
+            "address"=>"required",
+            "salary"=>"required",
+            "store_id"=>"required|exists:stores,id"
 
         ];
     }
 
-
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator){
-
 
         throw new HttpResponseException(
 
             response()->json(["data"=>[],"status"=>402,"message"=>$validator->errors()->first()])
 
         );
-
     }
+
+
 }

@@ -17,6 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("customer_id");
             $table->foreign("customer_id")->references("id")->on("customers");
+            $table->unsignedBigInteger("employee_dealing");
+            $table->foreign("employee_dealing")->references("id")->on("employees");
+            $table->unsignedBigInteger("employee_service");
+            $table->foreign("employee_service")->references("id")->on("employees");
             $table->timestamps();
         });
     }
