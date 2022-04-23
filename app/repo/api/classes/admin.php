@@ -18,4 +18,16 @@ class admin implements adminInterface{
         return $admin;
     }
 
+
+    public function updatePassword($request)
+    {
+
+            $admin=Modelsadmin::where("email",$request->email)->first();
+            $admin->password=Hash::make($request->password);
+            $admin->save();
+            return $admin;
+
+    }
+
+
 }
