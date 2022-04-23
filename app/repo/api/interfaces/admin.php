@@ -6,6 +6,7 @@ interface admin{
 
 
     public function store($request);
+    public function updatePassword($request);
 
 
 

@@ -17,13 +17,11 @@ Route::group(["middleware"=>["api","api_password"]],function(){
 
     Route::post("/admin.store",[admin::class,"store"]);
     Route::post("/admin.login",[admin::class,"login"]);
-
-
+    Route::post("/resetPassword",[admin::class,"resetPassword"]);
     Route::group(["middleware"=>["check_admin_token:admin_api"]],function(){
 
         Route::post("/admin.logout",[admin::class,"logout"]);
-
-
+        Route::post("/updatePassword",[admin::class,"updatePassword"]);
 
 
     });

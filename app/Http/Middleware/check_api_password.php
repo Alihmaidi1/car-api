@@ -16,7 +16,7 @@ class check_api_password
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->api_password==env("api_password")){
+        if($request->header("api_password")==env("api_password")){
 
             return $next($request);
 
