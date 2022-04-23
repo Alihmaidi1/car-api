@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\admins\admin;
+use App\Http\Controllers\api\models\model;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,15 @@ Route::group(["middleware"=>["api","api_password"]],function(){
 
         Route::post("/admin.logout",[admin::class,"logout"]);
         Route::post("/updatePassword",[admin::class,"updatePassword"]);
+
+
+        // model process
+
+        Route::get("/getAllModel",[model::class,"getAllModel"]);
+        Route::get("/findModel/{id}",[model::class,"findModel"]);
+        Route::post("/model.store",[model::class,"store"]);
+        Route::post("/model.update",[model::class,"update"]);
+        Route::post("/model.delete",[model::class,"delete"]);
 
 
     });
