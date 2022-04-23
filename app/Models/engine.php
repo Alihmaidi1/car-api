@@ -16,4 +16,13 @@ class engine extends Model
         return $this->belongsTo("App\Models\models","model_id");
 
     }
+
+
+    public function cars(){
+
+        return $this->hasMany("App\Models\car","engine_id");
+
+    }
+
+
 }

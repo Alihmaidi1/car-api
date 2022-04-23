@@ -6,6 +6,7 @@ use App\Http\Controllers\api\admins\admin;
 use App\Http\Controllers\api\models\model;
 use App\Http\Controllers\api\engines\engine;
 use App\Http\Controllers\api\carTypes\carType;
+use App\Http\Controllers\api\cars\car;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -53,6 +54,14 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/CarType.delete",[carType::class,"delete"]);
 
 
+        // car process
+        Route::get("getAllCar",[car::class,"getAllCar"]);
+        Route::get("/findCar/{id}",[car::class,"findCar"]);
+        Route::post("/Car.store",[car::class,"store"]);
+        Route::post("/Car.update",[car::class,"update"]);
+        Route::post("/Car.delete",[car::class,"delete"]);
+        Route::get("car.engine",[car::class,"carsFromEngine"]);
+        Route::get("car.type",[car::class,"carsFromType"]);
 
     });
 

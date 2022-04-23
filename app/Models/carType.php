@@ -10,4 +10,10 @@ class carType extends Model
     use HasFactory;
 
     public $fillable=["name","created_at"];
+
+    public function cars(){
+
+        return $this->hasMany("App\Models\car","type_id");
+
+    }
 }
