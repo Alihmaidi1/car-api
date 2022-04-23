@@ -10,4 +10,11 @@ class customer extends Model
     use HasFactory;
 
     public $fillable=["name","address","birthDay","phone"];
+
+    public function orders(){
+
+        return $this->hasMany("App\Models\order","customer_id");
+
+
+    }
 }

@@ -121,6 +121,45 @@ class carStore extends Controller
 
 
 
+    public function getCarstore_store(Request $request){
+
+        try{
+
+            $carstores=$this->carStore->getCarstore_store($request->id);
+            return response()->json(["data"=>$carstores,"status"=>200,"message"=>"Success"]);
+
+
+        }catch(\Exception $ex){
+
+            return response()->json(["data"=>[],"status"=>500,"message"=>"We Can't get this Carstore"]);
+        }
+
+
+
+    }
+
+
+
+    public function getCarstore_car(Request $request){
+
+        try{
+
+            $carStore=$this->carStore->getCarStore_car($request->id);
+            return response()->json(["data"=>$carStore,"status"=>200,"message"=>"Success"]);
+
+        }catch(\Exception $ex){
+
+            return response()->json(["data"=>[],"status"=>500,"message"=>"We Can't get All CarStore for This Car "]);
+
+
+        }
+
+
+
+
+
+    }
+
 
 
 

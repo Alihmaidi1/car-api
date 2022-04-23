@@ -1,7 +1,10 @@
 <?php
 namespace App\repo\api\classes;
+
+use App\Models\car;
 use App\repo\api\interfaces\carStore as carStoreInterface;
 use App\Models\storeCar as carStoreModel;
+use App\Models\store as storeModels;
 class carStore implements carStoreInterface{
 
     public function getAllCarStore()
@@ -48,6 +51,25 @@ class carStore implements carStoreInterface{
         $carStore1=$carStore;
         $carStore->delete();
         return $carStore;
+    }
+
+
+    public function getCarstore_store($id)
+    {
+
+        $store=storeModels::findOrFail($id);
+        $carStores=$store->carStore;
+        return $carStores;
+
+    }
+
+    public function getCarStore_car($id)
+    {
+
+        $car=car::findOrFail($id);
+        $carStores=$car->storeCar;
+        return $carStores;
+
     }
 
 }

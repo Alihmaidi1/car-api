@@ -2,15 +2,12 @@
 
 namespace App\repo\api\interfaces;
 
-interface carStore{
+interface order{
 
-    public function getAllCarStore();
+    public function getAllOrder();
     public function store($request);
     public function update($request);
-
     public function delete($id);
-    public function getCarstore_store($id);
-    public function getCarStore_car($id);
-
+    public function getOrdersCustomer($id);
 
 }
