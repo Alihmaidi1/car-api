@@ -19,6 +19,7 @@ class repo extends ServiceProvider
         $this->app->bind("App\\repo\api\interfaces\\engine","App\\repo\api\classes\\engine");
         $this->app->bind("App\\repo\api\interfaces\carType","App\\repo\api\classes\carType");
         $this->app->bind("App\\repo\api\interfaces\car","App\\repo\api\classes\car");
+        $this->app->bind("App\\repo\api\interfaces\manager","App\\repo\api\classes\manager");
 
     }
 
