@@ -18,6 +18,11 @@ class order extends Model
     }
 
 
+    public function orderDetail(){
+
+        return $this->hasMany("App\Models\orderDetail","order_id");
+    }
+
     public function getemployee_dealing(){
 
         return $this->belongsTo("App\Models\\employee","employee_dealing");

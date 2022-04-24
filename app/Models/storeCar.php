@@ -25,4 +25,11 @@ class storeCar extends Model
 
     }
 
+
+    public function orderDetail(){
+
+        return $this->hasMany("App\Models\orderDetail","carStore_id");
+    }
+
+
 }
