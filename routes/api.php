@@ -14,6 +14,7 @@ use App\Http\Controllers\api\customers\customer;
 use App\Http\Controllers\api\orders\order;
 use App\Http\Controllers\api\employees\employe;
 use App\Http\Controllers\api\orderDetails\orderDetail;
+use App\Http\Controllers\api\payments\payment;
 
 /*
 |--------------------------------------------------------------------------
@@ -132,7 +133,13 @@ Route::group(["middleware"=>["api","api_password"]],function(){
         Route::post("/orderDetail.getByorder",[orderDetail::class,"getByOrder"]);
         Route::post("/orderDetail.getBycarStore",[orderDetail::class,"getBycarStore"]);
 
-
+        // payment process
+        Route::get("getAllpayment",[payment::class,"getAllpayment"]);
+        Route::get("/findpayment/{id}",[payment::class,"findpayment"]);
+        Route::post("/payment.store",[payment::class,"store"]);
+        Route::post("/payment.update",[payment::class,"update"]);
+        Route::post("/payment.delete",[payment::class,"delete"]);
+        Route::post("/payment.order",[payment::class,"getPaymentsByOrder"]);
 
     });
 

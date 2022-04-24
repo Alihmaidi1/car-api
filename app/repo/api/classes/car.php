@@ -22,6 +22,7 @@ class car implements carInterface{
 
         $car=new carModel();
         $car->name=$request->name;
+        $car->price=$request->price;
         $car->type_id=$request->type_id;
         $car->number=$request->number;
         $car->engine_id=$request->engine_id;
@@ -36,6 +37,7 @@ class car implements carInterface{
 
         $car=carModel::findOrFail($request->id);
         $car->name=$request->name;
+        $car->price=$request->price;
         $car->type_id=$request->type_id;
         $car->number=$request->number;
         $car->engine_id=$request->engine_id;

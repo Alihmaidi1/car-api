@@ -29,7 +29,8 @@ class store extends FormRequest
             "name"=>"required",
             "number"=>"required|integer",
             "type_id"=>"required|exists:car_types,id",
-            "engine_id"=>"required|exists:engines,id"
+            "engine_id"=>"required|exists:engines,id",
+            "price"=>"required|integer",
 
 
         ];

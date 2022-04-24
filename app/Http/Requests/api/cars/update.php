@@ -30,7 +30,8 @@ class update extends FormRequest
             "number"=>"required|integer",
             "type_id"=>"required|exists:car_types,id",
             "engine_id"=>"required|exists:engines,id",
-            "id"=>"required|exists:cars,id"
+            "id"=>"required|exists:cars,id",
+            "price"=>"required|integer"
         ];
     }
 

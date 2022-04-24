@@ -23,6 +23,7 @@ class order implements orderInterface{
 
         $order=new orderModel();
         $order->customer_id=$request->customer_id;
+        $order->total_price=$request->total_price;
         $order->employee_dealing=$request->employee_dealing;
         $order->employee_service=$request->employee_service;
         $order->save();
@@ -37,6 +38,7 @@ class order implements orderInterface{
         $order->customer_id=$request->customer_id;
         $order->employee_dealing=$request->employee_dealing;
         $order->employee_service=$request->employee_service;
+        $order->total_price=$request->total_price;
         $order->save();
         return $order;
 

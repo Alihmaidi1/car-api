@@ -9,8 +9,7 @@ class order extends Model
 {
     use HasFactory;
 
-    public $fillable=["customer_id","employee_dealing","employee_service","created_at"];
-
+    public $fillable=["customer_id","total_price","debit","employee_dealing","employee_service","created_at"];
 
     public function customer(){
 
@@ -35,5 +34,12 @@ class order extends Model
 
     }
 
+
+
+    public function payments(){
+
+        return $this->hasMany("App\Models\payment","order_id");
+
+    }
 
 }

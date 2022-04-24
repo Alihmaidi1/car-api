@@ -26,6 +26,7 @@ class repo extends ServiceProvider
         $this->app->bind("App\\repo\api\interfaces\order","App\\repo\api\classes\order");
         $this->app->bind("App\\repo\api\interfaces\\employee","App\\repo\api\classes\\employee");
         $this->app->bind("App\\repo\api\interfaces\orderDetail","App\\repo\api\classes\orderDetail");
+        $this->app->bind("App\\repo\api\interfaces\payment","App\\repo\api\classes\payment");
     }
 
     /**

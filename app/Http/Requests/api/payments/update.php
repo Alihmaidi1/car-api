@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\api\orders;
+namespace App\Http\Requests\api\payments;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
@@ -25,18 +25,19 @@ class update extends FormRequest
     public function rules()
     {
         return [
-            "customer_id"=>"required|exists:customers,id",
-            "id"=>"required|exists:orders,id",
-            "employee_dealing"=>"required|exists:employees,id",
-            "employee_service"=>"required|exists:employees,id",
-            "total_price"=>"required|integer",
+
+            "order_id"=>"required|exists:orders,id",
+            "price"=>"required",
+            "id"=>"required|exists:payments,id"
 
 
         ];
+
     }
 
-    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator){
 
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator){
 
 
         throw new HttpResponseException(
@@ -46,4 +47,7 @@ class update extends FormRequest
         );
 
     }
+
+
+
 }

@@ -28,7 +28,8 @@ class store extends FormRequest
 
             "customer_id"=>"required|exists:customers,id",
             "employee_dealing"=>"required|exists:employees,id",
-            "employee_service"=>"required|exists:employees,id"
+            "employee_service"=>"required|exists:employees,id",
+            "total_price"=>"required|integer",
 
         ];
     }

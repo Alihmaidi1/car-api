@@ -9,7 +9,7 @@ class car extends Model
 {
     use HasFactory;
 
-    public $fillable=["name","number","type_id","engine_id","created_at"];
+    public $fillable=["name","number","price","type_id","engine_id","created_at"];
 
     public function engine(){
 
