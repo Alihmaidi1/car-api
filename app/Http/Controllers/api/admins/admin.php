@@ -82,7 +82,6 @@ class admin extends Controller
             $user=$admin->toArray();
             $user["token"]=auth("admin_api")->login($admin);
             return response()->json(["data"=>$user,"message"=>"The Password Was Updated Successfully","status"=>200]);
-
         }catch(\Exception $e){
 
             return response()->json(["status"=>500,"message"=>"the Password can't reset it","data"=>[]]);
